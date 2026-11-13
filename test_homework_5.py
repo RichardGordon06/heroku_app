@@ -17,4 +17,3 @@ def test_text(browser):
         browser.refresh()
 
     assert expected_text == correct_text, 'Совпадение не прошло проверку. Текст не совпадает эталонному'
-
