@@ -10,10 +10,12 @@ def test_text(browser):
     element = browser.find_element(By.CSS_SELECTOR, 'div.example :nth-child(3)')
     expected_text = element.text
 
-    while expected_text != correct_text:
+    attempts = 0
+    while correct_text != expected_text and attempts < 15:
+        browser.refresh()
         element = browser.find_element(By.CSS_SELECTOR, 'div.example :nth-child(3)')
         expected_text = element.text
         browser.implicitly_wait(10)
-        browser.refresh()
+        attempts += 1
 
-    assert expected_text == correct_text, 'Совпадение не прошло проверку. Текст не совпадает эталонному'
+    assert correct_text == expected_text, 'Совпадение не прошло проверку. Текст не совпадает эталонному'
