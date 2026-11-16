@@ -10,7 +10,7 @@ def test_add_remove_element(browser):
     add_element = browser.find_element(By.CSS_SELECTOR, '#content > div > button')
     add_element.click()
     add_element.click()
+    delete_button = browser.find_element(By.CSS_SELECTOR, '#elements button.added-manually')
+    delete_button.click()
     delete_elements = browser.find_elements(By.CSS_SELECTOR, '#elements > button')
-    assert len(delete_elements) == 2, "Элементов должно быть 2"
-    count = len(delete_elements)
-    print(count)
+    assert len(delete_elements) == 1, "Элементов должно быть 1"

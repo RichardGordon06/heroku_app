@@ -17,3 +17,4 @@ def test_tables(browser):
         line_text = row.text.strip()
         print(line_text)
         assert line_text in standards_list, f'Текст "{line_text}" отсутствует в эталоне'
+
